@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    >
+
+
+    <item
+        android:id="@+id/action_settings"
+        android:orderInCategory="100"
+        android:icon="@drawable/ic_menu"
+        app:showAsAction="always"
+        android:title="@string/menu"
+        >
+
+        <menu>
+
+            <item android:title="@string/share_application"
+                android:id="@+id/itemMShareApp"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_share"
+                />
+
+            <item android:title="@string/rating_app"
+                android:id="@+id/itemRating"
+                app:showAsAction="never"
+                android:icon="@drawable/ic_rate"
+                />
+
+        </menu>
+
+    </item>
+
+
+    <item
+        android:id="@+id/app_bar_search"
+        app:actionViewClass="android.widget.SearchView"
+        android:title="Search"
+        app:showAsAction="always" />
+
+
+
+</menu>

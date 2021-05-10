@@ -1,0 +1,25 @@
+<resources>
+    <string name="rating_app">تفييم التطبيق</string>
+    <string name="menu">القائمة</string>
+    <string name="share_application">نشر التطبيق</string>
+    <string name="choose_app_share">اختر التطبيق</string>
+    <string name="share_app">ادعوك الى تحميل هذا التطبيق رائع لقراءة القرأن</string>
+    <string name="searchhere">ابحث عن السورة</string>
+    <string name="share">نشر</string>
+    <string name="size_text">حجم الحروف</string>
+    <string name="ayeh_6236">الأيات : 6236</string>
+    <string name="sorah_114">السور : 114</string>
+    <string name="letters_322604">الحروف : 322604</string>
+    <string name="mode_night">قراءة ليلية</string>
+    <string name="permision">تم تأمين التصريح</string>
+    <string name="requst_perm_failed">طلب الاذن مرفوض</string>
+    <string name="need_perm">تحتاج إلى السماح أذونات بالوصول</string>
+    <string name="please_accept_perm">يرجى قبول الطلب.</string>
+    <string name="download_sprah">يتم تحميل السورة</string>
+    <string name="cancel">الغاء</string>
+    <string name="ok">حسنا</string>
+    <string name="seccus_downlaod">تم تحميل بنجاح</string>
+    <string name="derectry">السورة ستجدها في ملف تحميلات على هاتفك</string>
+    <string name="yea">موافق</string>
+
+</resources>

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:orientation="vertical"
+    android:layout_height="match_parent"
+    tools:context=".View.MainActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:orientation="horizontal"
+        >
+
+        <com.qurankareem.alaajami.Fonts.jazerra
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/ayeh_6236"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            />
+
+        <com.qurankareem.alaajami.Fonts.jazerra
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/sorah_114"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+
+            />
+
+        <com.qurankareem.alaajami.Fonts.jazerra
+            android:layout_width="wrap_content"
+            android:layout_height="match_parent"
+            android:gravity="center"
+            android:text="@string/letters_322604"
+            android:layout_weight="1"
+            android:textSize="18sp"
+            android:textColor="@color/colorPrimary"
+            />
+
+    </LinearLayout>
+
+    <LinearLayout
+        android:id="@+id/banner_container"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical" />
+
+    <ListView
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:id="@+id/listView"
+        android:layout_weight="1"
+        />
+
+
+    <!--<com.google.android.gms.ads.AdView
+        xmlns:ads="http://schemas.android.com/apk/res-auto"
+        android:id="@+id/adView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:layout_alignParentBottom="true"
+        ads:adSize="BANNER"
+        ads:adUnitId="@string/banner_ads"
+        tools:ignore="ObsoleteLayoutParam">
+    </com.google.android.gms.ads.AdView>-->
+
+
+</LinearLayout>

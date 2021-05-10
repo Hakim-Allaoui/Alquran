@@ -1,0 +1,63 @@
+<resources>
+    <string name="app_name" translatable="false">أحمد العجمي القرآن الكريم</string>
+
+    <string name="url_sound" translatable="false">https://www.quran.tv/mp3/alajmi/files/</string>
+<!--
+    <string name="interstitial_ads" translatable="false">ca-app-pub-6887419028298558/4374171736</string>
+    &lt;!&ndash;   test ads Interstitial : ca-app-spub-3940256099942544/1033173712&ndash;&gt;
+    <string name="banner_ads" translatable="false">ca-app-pub-6887419028298558/1939580085</string>
+&lt;!&ndash;   test ads banner : ca-app-pub-3940256099942544/6300978111&ndash;&gt;-->
+
+    <string name="fb_adbanner_id" translatable="false">227013932530434_227013985863762</string>
+    <string name="fb_interstitial_ad_unit_id" translatable="false">227013932530434_227013995863761</string>
+
+
+    <string name="rating_app">تقييم التطبيق</string>
+    <string name="menu">القائمة</string>
+    <string name="share_application">نشر التطبيق</string>
+    <string name="choose_app_share">اختر التطبيق</string>
+    <string name="share_app">ادعوك الى تحميل هذا التطبيق رائع لقراءة القرأن</string>
+    <string name="searchhere">ابحث عن السورة</string>
+    <string name="share">نشر</string>
+    <string name="size_text">حجم الحروف</string>
+    <string name="ayeh_6236">الأيات : 6236</string>
+    <string name="sorah_114">السور : 114</string>
+    <string name="letters_322604">الحروف : 322604</string>
+    <string name="mode_night">قراءة ليلية</string>
+    <string name="permision">تم تأمين التصريح</string>
+    <string name="requst_perm_failed">طلب الاذن مرفوض</string>
+    <string name="need_perm">تحتاج إلى السماح أذونات بالوصول</string>
+    <string name="please_accept_perm">يرجى قبول الطلب.</string>
+    <string name="download_sprah">يتم تحميل السورة</string>
+    <string name="cancel">الغاء</string>
+    <string name="ok">حسنا</string>
+    <string name="seccus_downlaod">تم تحميل بنجاح</string>
+    <string name="derectry">السورة ستجدها في ملف تحميلات على هاتفك</string>
+    <string name="yea">موافق</string>
+
+    <!--<string name="rating_app">Rating App</string>
+    <string name="menu">Menu</string>
+    <string name="share_application">Share App</string>
+    <string name="choose_app_share">Choose application :</string>
+    <string name="share_app">I invite you to install this application. Link play store :</string>
+    <string name="searchhere">Search Here</string>
+    <string name="share">Share</string>
+    <string name="size_text">Size Text</string>
+    <string name="ayeh_6236">Ayeh : 6236</string>
+    <string name="sorah_114">Sorah : 114</string>r
+    <string name="letters_322604">Letters : 322604</string>
+    <string name="mode_night">Mode night</string>
+    <string name="permision">The permit is locked</string>
+    <string name="requst_perm_failed">Permission request denied</string>
+    <string name="need_perm">You need to allow access permissions</string>
+    <string name="please_accept_perm">Please accept the application.</string>
+    <string name="download_sprah">Surah is downloding</string>
+    <string name="cancel">Cancel</string>
+
+
+    <string name="ok">Ok</string>
+    <string name="seccus_downlaod">Sourah download successful</string>
+    <string name="derectry">You can find sourah in download folder.</string>
+    <string name="yea">Yes</string>-->
+
+</resources>

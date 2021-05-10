@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+              android:orientation="horizontal"
+              android:layout_width="match_parent"
+              android:layout_height="wrap_content"
+              android:padding="8dp"
+              android:id="@+id/lyitem"
+             >
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="60dp"
+        android:src="@drawable/zakhrafaone"
+        />
+
+    <com.qurankareem.alaajami.Fonts.jazerra
+        android:textStyle="bold"
+        android:gravity="center"
+        android:textAlignment="center"
+        android:text="Surah"
+        android:background="@drawable/miniborder"
+        android:layout_width="0dp"
+        android:layout_height="60dp"
+        android:textSize="20sp"
+        android:textColor="#000"
+        android:id="@+id/tvtitleItem"
+        android:layout_weight="1"
+        />
+
+    <ImageView
+        android:layout_width="64dp"
+        android:layout_height="60dp"
+        android:src="@drawable/zakhrafaone"
+        />
+
+</LinearLayout>
