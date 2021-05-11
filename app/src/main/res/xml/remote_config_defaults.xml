@@ -1,0 +1,23 @@
+<?xml version="1.0" encoding="utf-8"?>
+<defaultsMap>
+    <entry>
+        <key>adNetwork</key>
+        <value>fb</value>
+    </entry>
+    <entry>
+        <key>fb_banner</key>
+        <value>IMG_16_9_APP_INSTALL#182230885712915_182234792379191</value>
+    </entry>
+    <entry>
+        <key>fb_inter</key>
+        <value>IMG_16_9_APP_INSTALL#182230885712915_182234475712556</value>
+    </entry>
+    <entry>
+        <key>admob_banner</key>
+        <value>IMG_16_9_APP_INSTALL#182230885712915_182234792379191</value>
+    </entry>
+    <entry>
+        <key>admob_inter</key>
+        <value>IMG_16_9_APP_INSTALL#182230885712915_182234475712556</value>
+    </entry>
+</defaultsMap>

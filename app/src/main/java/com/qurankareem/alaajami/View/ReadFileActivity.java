@@ -525,6 +525,11 @@ public class ReadFileActivity extends AppCompatActivity implements
         return true;
     }
 
+    @Override
+    public void onBackPressed() {
+        showInter();
+        super.onBackPressed();
+    }
 
     /// selected items menu:
     @SuppressLint("ResourceType")
@@ -562,6 +567,9 @@ public class ReadFileActivity extends AppCompatActivity implements
                     setTextSize(index);
                     //Toast.makeText(this, "Down : "+String.valueOf(index), Toast.LENGTH_SHORT).show();
                 }
+                break;
+            case android.R.id.home:
+                showInter();
                 break;
             default:
         }

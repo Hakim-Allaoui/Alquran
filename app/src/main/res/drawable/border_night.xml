@@ -3,14 +3,14 @@
 
     <!-- stroke = border -->
     <!-- can you add that for border  => android:width="1dp" -->
-    <stroke
+    <!--<stroke
         android:width="2dp"
         android:color="@color/colorPrimary"
-        />
+        />-->
 
     <!-- border-radius -->
-    <corners
-        android:radius="10dp"/>
+    <!--<corners
+        android:radius="10dp"/>-->
 
     <!-- color background-->
     <solid android:color="#000"/>
