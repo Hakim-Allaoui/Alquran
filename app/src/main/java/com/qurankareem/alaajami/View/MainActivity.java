@@ -34,19 +34,13 @@ import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 import static com.facebook.ads.CacheFlag.ALL;
 
-import com.google.android.gms.tasks.OnCompleteListener;
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfig;
-import com.google.firebase.remoteconfig.FirebaseRemoteConfigSettings;
 import com.qurankareem.alaajami.Adapters.ItemAdapter;
 import com.qurankareem.alaajami.Models.Item;
 import com.qurankareem.alaajami.R;
 
 import java.util.ArrayList;
 
-import androidx.annotation.NonNull;
-import android.widget.Toast;
-import com.google.android.gms.tasks.Task;
 
 public class MainActivity extends AppCompatActivity {
 
@@ -60,7 +54,7 @@ public class MainActivity extends AppCompatActivity {
     private FirebaseAnalytics mFirebaseAnalytics;
     private ArrayList<String> jcAudios;
     private ArrayList<String> Audios;
-    private FirebaseRemoteConfig mFirebaseRemoteConfig;
+    private InterstitialAd mInterstitialAd;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -71,18 +65,18 @@ public class MainActivity extends AppCompatActivity {
         mInterstitialAd.setAdUnitId(getString(R.string.interstitial_ads));
         mInterstitialAd.loadAd(new AdRequest.Builder().build());*/
         AudienceNetworkAds.initialize(getApplicationContext());
-        // [END get_remote_config_instance]
 
-        // Create a Remote Config Setting to enable developer mode, which you can use to increase
-        // the number of fetches available per hour during development. Also use Remote Config
-        // Setting to set the minimum fetch interval.
-        // [START enable_dev_mode]
+
         setContentView(R.layout.activity_main);
         mFirebaseAnalytics = FirebaseAnalytics.getInstance(this);
 
         mListView =  findViewById(R.id.listView);
         loadobjects();
+
+        interstitialads();
         bannerAd();
+
+
 
     }
 
@@ -119,6 +113,57 @@ public class MainActivity extends AppCompatActivity {
                 .build();
 
         mAdView.loadAd(loadAdConfig);
+    }
+
+    public void interstitialads() {
+        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_interstitial_ad_unit_id));
+
+        InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
+            @Override
+            public void onInterstitialDisplayed(Ad ad) {
+                // Interstitial ad displayed callback
+                Log.e(TAG, "Interstitial ad displayed.");
+            }
+
+            @Override
+            public void onInterstitialDismissed(Ad ad) {
+                // Interstitial dismissed callback
+                interstitialads();
+
+                Log.e(TAG, "Interstitial ad dismissed.");
+            }
+
+            @Override
+            public void onError(Ad ad, AdError adError) {
+                // Ad error callback
+                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
+            }
+
+            @Override
+            public void onAdLoaded(Ad ad) {
+                // Interstitial ad is loaded and ready to be displayed
+                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
+                // Show the ad
+            }
+
+            @Override
+            public void onAdClicked(Ad ad) {
+                // Ad clicked callback
+                Log.d(TAG, "Interstitial ad clicked!");
+            }
+
+            @Override
+            public void onLoggingImpression(Ad ad) {
+                // Ad impression logged callback
+                Log.d(TAG, "Interstitial ad impression logged!");
+            }
+        };
+
+        mInterstitialAd.loadAd(mInterstitialAd.buildLoadAdConfig()
+                .withAdListener(interstitialAdListener)
+                .withCacheFlags(ALL)
+                .build());
+
     }
 
 
@@ -457,6 +502,7 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
+        mInterstitialAd.show();
         if(!searchV.isIconified()){
             searchV.setIconified(true);
 

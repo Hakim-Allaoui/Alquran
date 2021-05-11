@@ -2,7 +2,7 @@
     <string name="app_name" translatable="false">أحمد العجمي القرآن الكريم</string>
 
     <string name="url_sound" translatable="false">https://www.quran.tv/mp3/alajmi/files/</string>
-    <!--
+<!--
     <string name="interstitial_ads" translatable="false">ca-app-pub-6887419028298558/4374171736</string>
     &lt;!&ndash;   test ads Interstitial : ca-app-spub-3940256099942544/1033173712&ndash;&gt;
     <string name="banner_ads" translatable="false">ca-app-pub-6887419028298558/1939580085</string>
@@ -34,15 +34,6 @@
     <string name="seccus_downlaod">تم تحميل بنجاح</string>
     <string name="derectry">السورة ستجدها في ملف تحميلات على هاتفك</string>
     <string name="yea">موافق</string>
-    <string name="title_activity_splash">SplashActivity</string>
-    <!-- Strings used for fragments for navigation -->
-    <string name="first_fragment_label">First Fragment</string>
-    <string name="second_fragment_label">Second Fragment</string>
-    <string name="next">Next</string>
-    <string name="previous">Previous</string>
-
-    <string name="hello_first_fragment">Hello first fragment</string>
-    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
     <!--<string name="rating_app">Rating App</string>
     <string name="menu">Menu</string>
