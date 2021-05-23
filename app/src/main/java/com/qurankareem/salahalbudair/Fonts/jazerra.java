@@ -1,4 +1,4 @@
-package com.qurankareem.alaajami.Fonts;
+package com.qurankareem.salahalbudair.Fonts;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,24 +6,24 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.qurankareem.alaajami.R;
+import com.qurankareem.salahalbudair.R;
 
-public class quraan extends androidx.appcompat.widget.AppCompatTextView  {
+public class jazerra extends androidx.appcompat.widget.AppCompatTextView  {
 
 
     AttributeSet attr;
 
-    public quraan(Context context) {
+    public jazerra(Context context) {
         super(context);
         setCustomFont(context, attr);
     }
 
-    public quraan(Context context, AttributeSet attrs) {
+    public jazerra(Context context, AttributeSet attrs) {
         super(context, attrs);
         setCustomFont(context, attrs);
     }
 
-    public quraan(Context context, AttributeSet attrs, int defStyle) {
+    public jazerra(Context context, AttributeSet attrs, int defStyle) {
         super(context, attrs, defStyle);
         setCustomFont(context, attrs);
     }
@@ -36,7 +36,7 @@ public class quraan extends androidx.appcompat.widget.AppCompatTextView  {
             customFont = a.getString(R.styleable.jazira1_jazira_customFont);
         }
         if (customFont == null)
-            customFont = "fonts/me_quran_volt_newmet.ttf";
+            customFont = "fonts/jazira.ttf";
         setCustomFont(ctx, customFont);
         if (a != null) {
             a.recycle();

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.qurankareem.alaajami">
+    package="com.qurankareem.salahalbudair">
 
     <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
@@ -25,9 +25,9 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
 
-        <service android:name="com.qurankareem.alaajami.Services.ServicePlayer" />
+        <service android:name="com.qurankareem.salahalbudair.Services.ServicePlayer" />
 
-        <activity android:name="com.qurankareem.alaajami.View.MainActivity">
+        <activity android:name="com.qurankareem.salahalbudair.View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,16 +35,16 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.qurankareem.alaajami.View.ReadFileActivity"
-            android:parentActivityName="com.qurankareem.alaajami.View.MainActivity" />
+            android:name="com.qurankareem.salahalbudair.View.ReadFileActivity"
+            android:parentActivityName="com.qurankareem.salahalbudair.View.MainActivity" />
 
-        <service android:name="com.qurankareem.alaajami.Models.DownloadService" />
+        <service android:name="com.qurankareem.salahalbudair.Models.DownloadService" />
 
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
-            android:value="ca-app-pub-8528201361523120~2882122511"/>
+            android:value="@string/admob_AppId"/>
 
     </application>
 

@@ -1,4 +1,4 @@
-package com.qurankareem.alaajami.View;
+package com.qurankareem.salahalbudair.View;
 
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
@@ -35,9 +35,9 @@ import com.facebook.ads.InterstitialAdListener;
 import static com.facebook.ads.CacheFlag.ALL;
 
 import com.google.firebase.analytics.FirebaseAnalytics;
-import com.qurankareem.alaajami.Adapters.ItemAdapter;
-import com.qurankareem.alaajami.Models.Item;
-import com.qurankareem.alaajami.R;
+import com.qurankareem.salahalbudair.Adapters.ItemAdapter;
+import com.qurankareem.salahalbudair.Models.Item;
+import com.qurankareem.salahalbudair.R;
 
 import java.util.ArrayList;
 
@@ -81,7 +81,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void bannerAd(){
-        mAdView = new AdView(this, getString(R.string.fb_adbanner_id), AdSize.BANNER_HEIGHT_50);
+        mAdView = new AdView(this, getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
         LinearLayout adContainer  = (LinearLayout) findViewById(R.id.banner_container);
         adContainer.addView(mAdView);
         //Banner listeaner
@@ -116,7 +116,7 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void interstitialads() {
-        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_interstitial_ad_unit_id));
+        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_inter));
 
         InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
             @Override
@@ -502,7 +502,6 @@ public class MainActivity extends AppCompatActivity {
 
     @Override
     public void onBackPressed() {
-        mInterstitialAd.show();
         if(!searchV.isIconified()){
             searchV.setIconified(true);
 

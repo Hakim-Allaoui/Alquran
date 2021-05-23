@@ -1,4 +1,4 @@
-package com.qurankareem.alaajami.Models;
+package com.qurankareem.salahalbudair.Models;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.qurankareem.alaajami.R;
+import com.qurankareem.salahalbudair.R;
 
 public class DownloadReceiver extends ResultReceiver {
 

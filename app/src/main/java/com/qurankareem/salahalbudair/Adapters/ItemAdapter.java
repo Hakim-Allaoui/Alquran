@@ -1,4 +1,4 @@
-package com.qurankareem.alaajami.Adapters;
+package com.qurankareem.salahalbudair.Adapters;
 
 import android.content.Context;
 import android.content.Intent;
@@ -29,9 +29,9 @@ import com.facebook.ads.InterstitialAd;
 import com.facebook.ads.InterstitialAdListener;
 import static com.facebook.ads.CacheFlag.ALL;
 
-import com.qurankareem.alaajami.Models.Item;
-import com.qurankareem.alaajami.R;
-import com.qurankareem.alaajami.View.ReadFileActivity;
+import com.qurankareem.salahalbudair.Models.Item;
+import com.qurankareem.salahalbudair.R;
+import com.qurankareem.salahalbudair.View.ReadFileActivity;
 
 import java.util.ArrayList;
 
@@ -65,7 +65,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
     }
 
     public void interstitialads() {
-        mInterstitialAd = new InterstitialAd(mContext, mContext.getString(R.string.fb_interstitial_ad_unit_id));
+        mInterstitialAd = new InterstitialAd(mContext, mContext.getString(R.string.fb_inter));
 
         InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
             @Override

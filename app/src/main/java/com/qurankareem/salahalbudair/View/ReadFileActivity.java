@@ -1,4 +1,4 @@
-package com.qurankareem.alaajami.View;
+package com.qurankareem.salahalbudair.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -48,12 +48,12 @@ import com.facebook.ads.InterstitialAdListener;
 
 import static com.facebook.ads.CacheFlag.ALL;
 
-import com.qurankareem.alaajami.Adapters.ItemAdapter;
-import com.qurankareem.alaajami.Models.DownloadReceiver;
-import com.qurankareem.alaajami.Models.DownloadService;
-import com.qurankareem.alaajami.Models.Helpers;
-import com.qurankareem.alaajami.R;
-import com.qurankareem.alaajami.Services.ServicePlayer;
+import com.qurankareem.salahalbudair.Adapters.ItemAdapter;
+import com.qurankareem.salahalbudair.Models.DownloadReceiver;
+import com.qurankareem.salahalbudair.Models.DownloadService;
+import com.qurankareem.salahalbudair.Models.Helpers;
+import com.qurankareem.salahalbudair.R;
+import com.qurankareem.salahalbudair.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -89,7 +89,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.alaajami.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.salahalbudair.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;
@@ -139,7 +139,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     };
 
     public void bannerAd() {
-        mAdView = new AdView(this, getString(R.string.fb_adbanner_id), AdSize.BANNER_HEIGHT_50);
+        mAdView = new AdView(this, getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
         adContainer = (LinearLayout) findViewById(R.id.banner_container);
         adContainer.addView(mAdView);
         //Banner listeaner
@@ -174,7 +174,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     }
 
     public void interstitialads() {
-        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_interstitial_ad_unit_id));
+        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_inter));
 
         InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
             @Override
@@ -232,6 +232,12 @@ public class ReadFileActivity extends AppCompatActivity implements
             return;
         }
         mInterstitialAd.show();
+    }
+
+    @Override
+    public void onBackPressed() {
+        showInter();
+        super.onBackPressed();
     }
 
     private void previous() {
@@ -563,10 +569,12 @@ public class ReadFileActivity extends AppCompatActivity implements
                     //Toast.makeText(this, "Down : "+String.valueOf(index), Toast.LENGTH_SHORT).show();
                 }
                 break;
+            case android.R.id.home:
+                showInter();
+                break;
             default:
         }
         return super.onOptionsItemSelected(item);
-
     }
 
     @SuppressLint("ResourceType")

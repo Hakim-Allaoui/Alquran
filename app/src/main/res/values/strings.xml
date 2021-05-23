@@ -1,16 +1,19 @@
 <resources>
-    <string name="app_name" translatable="false">أحمد العجمي القرآن الكريم</string>
+    <string name="app_name" translatable="false">صلاح البدير القرآن الكريم</string>
 
-    <string name="url_sound" translatable="false">https://www.quran.tv/mp3/alajmi/files/</string>
-<!--
-    <string name="interstitial_ads" translatable="false">ca-app-pub-6887419028298558/4374171736</string>
-    &lt;!&ndash;   test ads Interstitial : ca-app-spub-3940256099942544/1033173712&ndash;&gt;
-    <string name="banner_ads" translatable="false">ca-app-pub-6887419028298558/1939580085</string>
-&lt;!&ndash;   test ads banner : ca-app-pub-3940256099942544/6300978111&ndash;&gt;-->
+    <string name="url_sound" translatable="false">https://www.quran.tv/mp3/albeder/files/</string>
 
-    <string name="fb_adbanner_id" translatable="false">227013932530434_227013985863762</string>
-    <string name="fb_interstitial_ad_unit_id" translatable="false">227013932530434_227013995863761</string>
+    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~3903743264</string>
+    <string name="admob_bannerAd" translatable="false">ca-app-pub-8644958469423958/3275744228</string>
+    <string name="admob_interstitialAd" translatable="false">ca-app-pub-8644958469423958/1667149084</string>
 
+    <!--   test ads banner : ca-app-pub-3940256099942544~3347511713-->
+    <!--   test ads banner : ca-app-pub-3940256099942544/6300978111-->
+    <!--   test ads Interstitial : ca-app-spub-3940256099942544/1033173712-->
+
+
+    <string name="fb_banner" translatable="false">3086248891661485_3086248994994808</string>
+    <string name="fb_inter" translatable="false">3086248891661485_3086248988328142</string>
 
     <string name="rating_app">تقييم التطبيق</string>
     <string name="menu">القائمة</string>
