@@ -1,4 +1,4 @@
-package com.qurankareem.eldjazairiyassin.View;
+package com.qurankareem.misharyalafassy.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -42,13 +42,13 @@ import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
 
 import com.ironsource.mediationsdk.IronSource;
-import com.qurankareem.eldjazairiyassin.Adapters.ItemAdapter;
-import com.qurankareem.eldjazairiyassin.Ads.AdsHelper;
-import com.qurankareem.eldjazairiyassin.Models.DownloadReceiver;
-import com.qurankareem.eldjazairiyassin.Models.DownloadService;
-import com.qurankareem.eldjazairiyassin.Models.Helpers;
-import com.qurankareem.eldjazairiyassin.R;
-import com.qurankareem.eldjazairiyassin.Services.ServicePlayer;
+import com.qurankareem.misharyalafassy.Adapters.ItemAdapter;
+import com.qurankareem.misharyalafassy.Ads.AdsHelper;
+import com.qurankareem.misharyalafassy.Models.DownloadReceiver;
+import com.qurankareem.misharyalafassy.Models.DownloadService;
+import com.qurankareem.misharyalafassy.Models.Helpers;
+import com.qurankareem.misharyalafassy.R;
+import com.qurankareem.misharyalafassy.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -84,7 +84,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.eldjazairiyassin.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.misharyalafassy.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;
@@ -117,7 +117,7 @@ public class ReadFileActivity extends AppCompatActivity implements
 
         // final FrameLayout frameLayout = findViewById(R.id.bannerContainer);
         ads.createBanner();
-        ads.loadInterstitial(true);
+//        ads.loadInterstitial(true);
 
         new Thread(new Runnable() {
             @Override

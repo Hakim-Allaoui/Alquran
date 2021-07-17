@@ -13,7 +13,7 @@
         android:src="@drawable/zakhrafaone"
         />
 
-    <com.qurankareem.eldjazairiyassin.Fonts.jazerra
+    <com.qurankareem.misharyalafassy.Fonts.jazerra
         android:textStyle="bold"
         android:gravity="center"
         android:textAlignment="center"

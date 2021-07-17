@@ -9,12 +9,12 @@
         android:id="@+id/imgThumb"
         android:layout_width="120dp"
         android:layout_height="match_parent"
-        android:scaleType="fitXY"
         android:padding="8dp"
-        android:src="@mipmap/ic_launcher"/>
+        android:scaleType="centerCrop"
+        android:src="@mipmap/ic_logo"/>
 
     <LinearLayout
-        android:layout_width="match_parent"
+        android:layout_width="0dp"
         android:layout_height="wrap_content"
         android:layout_weight="1"
         android:orientation="vertical">
