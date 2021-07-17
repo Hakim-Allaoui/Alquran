@@ -1,4 +1,4 @@
-package com.qurankareem.salahalbudair.View;
+package com.qurankareem.minshawifast.View;
 
 import android.app.SearchManager;
 import android.content.ActivityNotFoundException;
@@ -28,10 +28,10 @@ import com.facebook.ads.InterstitialAd;
 import com.google.firebase.analytics.FirebaseAnalytics;
 import com.ironsource.mediationsdk.IronSource;
 import com.ironsource.mediationsdk.integration.IntegrationHelper;
-import com.qurankareem.salahalbudair.Adapters.ItemAdapter;
-import com.qurankareem.salahalbudair.Ads.AdsHelper;
-import com.qurankareem.salahalbudair.Models.Item;
-import com.qurankareem.salahalbudair.R;
+import com.qurankareem.minshawifast.Adapters.ItemAdapter;
+import com.qurankareem.minshawifast.Ads.AdsHelper;
+import com.qurankareem.minshawifast.Models.Item;
+import com.qurankareem.minshawifast.R;
 
 import java.util.ArrayList;
 
