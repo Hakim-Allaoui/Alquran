@@ -3,11 +3,11 @@ apply plugin: 'com.android.application'
 android {
     compileSdkVersion 30
     defaultConfig {
-        applicationId "com.qurankareem.salahalbudair"
+        applicationId "com.qurankareem.maheralmueaqly"
         minSdkVersion 16
         targetSdkVersion 30
         versionCode 1
-        versionName "1"
+        versionName "1.0.0"
         multiDexEnabled true
         testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
     }
@@ -43,25 +43,27 @@ dependencies {
 
     implementation 'com.google.android.material:material:1.3.0'
     implementation 'com.squareup.picasso:picasso:2.71828'
-//    implementation 'com.google.android.gms:play-services-ads:19.6.0'
     implementation 'com.android.support:multidex:1.0.3' //enter the latest version
 
-
-    // Declare the dependencies for the Crashlytics and Analytics libraries
-    // When using the BoM, you don't specify versions in Firebase library dependencies
-//    implementation 'com.google.firebase:firebase-crashlytics:17.3.0'
-    implementation 'com.google.firebase:firebase-analytics:18.0.3'
+    implementation 'com.google.firebase:firebase-analytics:18.0.0'
     implementation 'com.wang.avi:library:2.1.3'
     implementation 'com.google.android.gms:play-services-base:17.6.0'
     implementation 'com.google.android.gms:play-services-gcm:17.0.0'
 
 
-    implementation 'com.facebook.android:audience-network-sdk:6.4.0'
-
-    implementation 'com.google.android.gms:play-services-ads:20.1.0'
-    implementation 'com.google.ads.mediation:facebook:6.4.0.0'
+    implementation 'com.google.android.gms:play-services-ads-identifier:17.0.1'
+    implementation 'com.google.android.gms:play-services-basement:17.6.0'
 
 
+    implementation 'com.ironsource.sdk:mediationsdk:7.1.7'
+
+// Add Facebook Network
+    implementation 'com.ironsource.adapters:facebookadapter:4.3.28'
+    implementation 'com.facebook.android:audience-network-sdk:6.5.1'
+
+    // Add AdMob and Ad Manager Network
+    implementation 'com.google.android.gms:play-services-ads:20.2.0'
+    implementation 'com.ironsource.adapters:admobadapter:4.3.21'
 }
 apply plugin: 'com.google.gms.google-services'  // Google Services plugin
 

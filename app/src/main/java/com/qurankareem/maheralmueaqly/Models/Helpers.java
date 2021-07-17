@@ -1,4 +1,4 @@
-package com.qurankareem.salahalbudair.Models;
+package com.qurankareem.maheralmueaqly.Models;
 
 public class Helpers {
 

@@ -1,4 +1,4 @@
-package com.qurankareem.salahalbudair.View;
+package com.qurankareem.maheralmueaqly.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -38,22 +38,17 @@ import com.google.android.gms.ads.AdView;
 import com.google.android.gms.ads.InterstitialAd;
 import com.google.android.gms.ads.AdRequest;*/
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
 import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
 
-import static com.facebook.ads.CacheFlag.ALL;
-
-import com.qurankareem.salahalbudair.Adapters.ItemAdapter;
-import com.qurankareem.salahalbudair.Models.DownloadReceiver;
-import com.qurankareem.salahalbudair.Models.DownloadService;
-import com.qurankareem.salahalbudair.Models.Helpers;
-import com.qurankareem.salahalbudair.R;
-import com.qurankareem.salahalbudair.Services.ServicePlayer;
+import com.ironsource.mediationsdk.IronSource;
+import com.qurankareem.maheralmueaqly.Adapters.ItemAdapter;
+import com.qurankareem.maheralmueaqly.Ads.AdsHelper;
+import com.qurankareem.maheralmueaqly.Models.DownloadReceiver;
+import com.qurankareem.maheralmueaqly.Models.DownloadService;
+import com.qurankareem.maheralmueaqly.Models.Helpers;
+import com.qurankareem.maheralmueaqly.R;
+import com.qurankareem.maheralmueaqly.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -89,11 +84,157 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.salahalbudair.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.maheralmueaqly.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;
     private LinearLayout adContainer;
+    int adCounter = 0;
+
+    AdsHelper ads = new AdsHelper(ReadFileActivity.this);
+
+
+
+    @Override
+    protected void onCreate(Bundle savedInstanceState) {
+        super.onCreate(savedInstanceState);
+        setContentView(R.layout.activity_read_file);
+        editor = getSharedPreferences("pos", MODE_PRIVATE).edit();
+        prefs = getSharedPreferences("pos", MODE_PRIVATE);
+
+        tvmain = findViewById(R.id.tvTEXT);
+        lyread = findViewById(R.id.lyread);
+        tvTotalTime = (TextView) findViewById(R.id.tvTotalTime);
+        tvElapsedTime = (TextView) findViewById(R.id.tvElapsedTime);
+        prgTrack = (SeekBar) findViewById(R.id.seekTrack);
+        btnPlayAndPause = (ImageButton) findViewById(R.id.btnPlay);
+        btnNext = (ImageButton) findViewById(R.id.btnNext);
+        btnPrev = (ImageButton) findViewById(R.id.btnPrev);
+        btnShuffle = (ImageButton) findViewById(R.id.btnShuffle);
+        btnRepeat = (ImageButton) findViewById(R.id.btnRepeat);
+        indicator = (AVLoadingIndicatorView) findViewById(R.id.mainIndicator);
+
+
+        // final FrameLayout frameLayout = findViewById(R.id.bannerContainer);
+        ads.createBanner();
+        ads.loadInterstitial(true);
+
+        new Thread(new Runnable() {
+            @Override
+            public void run() {
+                Intent intent = new Intent(ReadFileActivity.this,
+                        ServicePlayer.class);
+                getApplicationContext().bindService(intent, serviceConnection,
+                        Context.BIND_AUTO_CREATE);
+            }
+        }).run();
+
+        title = getIntent().getStringExtra("title");
+        pos = getIntent().getStringExtra("pos");
+        postion = Integer.parseInt(pos);
+
+
+        if (postion == 1) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
+        } else if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
+        } else if (postion > 10 && postion < 100) {
+            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
+        } else {
+            path = getString(R.string.url_sound) + postion + "_2.mp3";
+        }
+
+        getSupportActionBar().setTitle(title);
+
+
+        text = new StringBuilder();
+
+        try {
+            InputStream input = getAssets().open(pos);
+            InputStreamReader isr = new InputStreamReader(input);
+
+            BufferedReader br = new BufferedReader(isr);
+            String line;
+            while ((line = br.readLine()) != null) {
+                text.append(line);
+                text.append('\n');
+            }
+
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+        tvmain.setText(text);
+
+
+        btnNext.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                next();
+            }
+        });
+
+        btnPrev.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                previous();
+            }
+        });
+
+        btnPlayAndPause.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (audioPlayerService.isPlay()) {
+                    audioPlayerService.pause();
+
+                    btnPlayAndPause
+                            .setImageResource(R.drawable.ic_play);
+                } else {
+                    audioPlayerService.resume();
+
+                    btnPlayAndPause
+                            .setImageResource(R.drawable.ic_stop);
+                }
+                if(adCounter % 4 == 0 ){
+                    ads.showInterstitial();
+                }
+                adCounter++;
+                Log.v("ReadFileActivity","adCounter " + adCounter);
+            }
+        });
+
+        btnShuffle.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                if (!isShuffle) {
+                    isShuffle = true;
+                    audioPlayerService.setShuffle(true);
+                    btnShuffle
+                            .setImageResource(R.drawable.ic_shuffle_gr);
+                } else {
+                    isShuffle = false;
+                    audioPlayerService.setShuffle(false);
+                    btnShuffle.setImageResource(R.drawable.ic_shuffle);
+                }
+            }
+        });
+
+        btnRepeat.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v) {
+                // TODO Auto-generated method stub
+                if (!isRepeat) {
+                    isRepeat = true;
+                    audioPlayerService.setRepeat(true);
+                    btnRepeat.setImageResource(R.drawable.ic_repeat_gr);
+                } else {
+                    isRepeat = false;
+                    audioPlayerService.setRepeat(false);
+                    btnRepeat.setImageResource(R.drawable.ic_repeat);
+                }
+            }
+        });
+
+    }
+
 
 
     private BroadcastReceiver notificationReceiver = new BroadcastReceiver() {
@@ -104,14 +245,6 @@ public class ReadFileActivity extends AppCompatActivity implements
                     updatePlaybackUI();
                     indicator.setVisibility(View.GONE);
                     btnPlayAndPause.setVisibility(View.VISIBLE);
-
-                    /*// Interstitial ads
-                    mInterstitialAd = new InterstitialAd(context);
-                    mInterstitialAd.setAdUnitId(context.getString(R.string.interstitial_ads));
-                    mInterstitialAd.loadAd(new AdRequest.Builder().build());*/
-
-                    interstitialads();
-
 
                     boolean click_next = intent.getBooleanExtra("click_next", false);
                     boolean click_pre = intent.getBooleanExtra("click_pre", false);
@@ -138,105 +271,10 @@ public class ReadFileActivity extends AppCompatActivity implements
         }
     };
 
-    public void bannerAd() {
-        mAdView = new AdView(this, getString(R.string.fb_banner), AdSize.BANNER_HEIGHT_50);
-        adContainer = (LinearLayout) findViewById(R.id.banner_container);
-        adContainer.addView(mAdView);
-        //Banner listeaner
-        AdListener adListener = new AdListener() {
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Log.e("Error", "Error: " + adError.getErrorMessage());
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Ad loaded callback
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-            }
-        };
-
-        AdView.AdViewLoadConfig loadAdConfig = mAdView.buildLoadAdConfig()
-                .withAdListener(adListener)
-                .build();
-
-        mAdView.loadAd(loadAdConfig);
-    }
-
-    public void interstitialads() {
-        mInterstitialAd = new InterstitialAd(this, getString(R.string.fb_inter));
-
-        InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-                // Interstitial ad displayed callback
-                Log.e(TAG, "Interstitial ad displayed.");
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                // Interstitial dismissed callback
-                interstitialads();
-
-                Log.e(TAG, "Interstitial ad dismissed.");
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Interstitial ad is loaded and ready to be displayed
-                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
-                // Show the ad
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-                Log.d(TAG, "Interstitial ad clicked!");
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-                Log.d(TAG, "Interstitial ad impression logged!");
-            }
-        };
-
-        mInterstitialAd.loadAd(mInterstitialAd.buildLoadAdConfig()
-                .withAdListener(interstitialAdListener)
-                .withCacheFlags(ALL)
-                .build());
-
-    }
-
-    private void showInter() {
-        if (mInterstitialAd == null || !mInterstitialAd.isAdLoaded()) {
-            return;
-        }
-        if (mInterstitialAd.isAdInvalidated()) {
-            return;
-        }
-        mInterstitialAd.show();
-    }
 
     @Override
     public void onBackPressed() {
-        showInter();
+        ads.showInterstitial();
         super.onBackPressed();
     }
 
@@ -267,12 +305,14 @@ public class ReadFileActivity extends AppCompatActivity implements
         }
         tvmain.setText(text);
 
-        if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
+        if (postion == 1) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
+        } else if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
         } else {
-            path = getString(R.string.url_sound) + postion + ".mp3";
+            path = getString(R.string.url_sound) + postion + "_2.mp3";
         }
 
         editor.putInt("currentPos", postion);
@@ -329,12 +369,14 @@ public class ReadFileActivity extends AppCompatActivity implements
         }
         tvmain.setText(text);
 
-        if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
+        if (postion == 1) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
+        } else if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
         } else {
-            path = getString(R.string.url_sound) + postion + ".mp3";
+            path = getString(R.string.url_sound) + postion + "_2.mp3";
         }
 
         editor.putInt("currentPos", postion);
@@ -346,138 +388,6 @@ public class ReadFileActivity extends AppCompatActivity implements
 
 
     }
-
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_read_file);
-        editor = getSharedPreferences("pos", MODE_PRIVATE).edit();
-        prefs = getSharedPreferences("pos", MODE_PRIVATE);
-
-        tvmain = findViewById(R.id.tvTEXT);
-        lyread = findViewById(R.id.lyread);
-        tvTotalTime = (TextView) findViewById(R.id.tvTotalTime);
-        tvElapsedTime = (TextView) findViewById(R.id.tvElapsedTime);
-        prgTrack = (SeekBar) findViewById(R.id.seekTrack);
-        btnPlayAndPause = (ImageButton) findViewById(R.id.btnPlay);
-        btnNext = (ImageButton) findViewById(R.id.btnNext);
-        btnPrev = (ImageButton) findViewById(R.id.btnPrev);
-        btnShuffle = (ImageButton) findViewById(R.id.btnShuffle);
-        btnRepeat = (ImageButton) findViewById(R.id.btnRepeat);
-        indicator = (AVLoadingIndicatorView) findViewById(R.id.mainIndicator);
-
-
-        new Thread(new Runnable() {
-            @Override
-            public void run() {
-                Intent intent = new Intent(ReadFileActivity.this,
-                        ServicePlayer.class);
-                getApplicationContext().bindService(intent, serviceConnection,
-                        Context.BIND_AUTO_CREATE);
-            }
-        }).run();
-
-        title = getIntent().getStringExtra("title");
-        pos = getIntent().getStringExtra("pos");
-        postion = Integer.parseInt(pos);
-
-
-        if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
-        } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
-        } else {
-            path = getString(R.string.url_sound) + postion + ".mp3";
-        }
-
-        getSupportActionBar().setTitle(title);
-
-
-        text = new StringBuilder();
-
-        try {
-            InputStream input = getAssets().open(pos);
-            InputStreamReader isr = new InputStreamReader(input);
-
-            BufferedReader br = new BufferedReader(isr);
-            String line;
-            while ((line = br.readLine()) != null) {
-                text.append(line);
-                text.append('\n');
-            }
-
-        } catch (IOException e) {
-            e.printStackTrace();
-        }
-        tvmain.setText(text);
-
-
-        btnNext.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                next();
-            }
-        });
-
-        btnPrev.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                previous();
-            }
-        });
-
-        btnPlayAndPause.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (audioPlayerService.isPlay()) {
-                    audioPlayerService.pause();
-
-                    btnPlayAndPause
-                            .setImageResource(R.drawable.ic_play);
-                } else {
-                    audioPlayerService.resume();
-
-                    btnPlayAndPause
-                            .setImageResource(R.drawable.ic_stop);
-                }
-            }
-        });
-
-        btnShuffle.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View v) {
-                if (!isShuffle) {
-                    isShuffle = true;
-                    audioPlayerService.setShuffle(true);
-                    btnShuffle
-                            .setImageResource(R.drawable.ic_shuffle_gr);
-                } else {
-                    isShuffle = false;
-                    audioPlayerService.setShuffle(false);
-                    btnShuffle.setImageResource(R.drawable.ic_shuffle);
-                }
-            }
-        });
-
-        btnRepeat.setOnClickListener(new View.OnClickListener() {
-            public void onClick(View v) {
-                // TODO Auto-generated method stub
-                if (!isRepeat) {
-                    isRepeat = true;
-                    audioPlayerService.setRepeat(true);
-                    btnRepeat.setImageResource(R.drawable.ic_repeat_gr);
-                } else {
-                    isRepeat = false;
-                    audioPlayerService.setRepeat(false);
-                    btnRepeat.setImageResource(R.drawable.ic_repeat);
-                }
-            }
-        });
-
-        bannerAd();
-
-    }
-
 
     private Runnable updateTime = new Runnable() {
         public void run() {
@@ -570,7 +480,7 @@ public class ReadFileActivity extends AppCompatActivity implements
                 }
                 break;
             case android.R.id.home:
-                showInter();
+                ads.showInterstitial();
                 break;
             default:
         }
@@ -652,7 +562,7 @@ public class ReadFileActivity extends AppCompatActivity implements
         intent.putExtra("surah_name", title);
         intent.putExtra("receiver", new DownloadReceiver(ReadFileActivity.this, mProgressDialog, new Handler()));
         startService(intent);
-        showInter();
+        ads.showInterstitial();
 
     }
 
@@ -718,6 +628,9 @@ public class ReadFileActivity extends AppCompatActivity implements
     @Override
     protected void onResume() {
         super.onResume();
+        IronSource.onResume(this);
+        // final FrameLayout frameLayout = findViewById(R.id.bannerContainer);
+        ads.createBanner();
         IntentFilter intentFilter = new IntentFilter();
         intentFilter.addAction(ServicePlayer.UPDATE_UI);
         intentFilter.addAction(ServicePlayer.BUFFERING);
@@ -732,6 +645,8 @@ public class ReadFileActivity extends AppCompatActivity implements
 
     @Override
     protected void onPause() {
+        IronSource.onPause(this);
+        ads.distroyBanner();
         super.onPause();
         unregisterReceiver(notificationReceiver);
     }

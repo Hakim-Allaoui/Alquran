@@ -1,8 +1,8 @@
-package com.qurankareem.salahalbudair.Adapters;
+package com.qurankareem.maheralmueaqly.Adapters;
 
+import android.app.Activity;
 import android.content.Context;
 import android.content.Intent;
-import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -20,18 +20,11 @@ import androidx.annotation.NonNull;
 /*import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;*/
 
-import com.facebook.ads.Ad;
-import com.facebook.ads.AdError;
-import com.facebook.ads.AdListener;
-import com.facebook.ads.AdSize;
-import com.facebook.ads.AdView;
-import com.facebook.ads.InterstitialAd;
-import com.facebook.ads.InterstitialAdListener;
-import static com.facebook.ads.CacheFlag.ALL;
-
-import com.qurankareem.salahalbudair.Models.Item;
-import com.qurankareem.salahalbudair.R;
-import com.qurankareem.salahalbudair.View.ReadFileActivity;
+import com.qurankareem.maheralmueaqly.Ads.AdsHelper;
+import com.qurankareem.maheralmueaqly.Models.Item;
+import com.qurankareem.maheralmueaqly.R;
+import com.qurankareem.maheralmueaqly.View.MainActivity;
+import com.qurankareem.maheralmueaqly.View.ReadFileActivity;
 
 import java.util.ArrayList;
 
@@ -42,86 +35,32 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
     private Context mContext;
     private int mResource;
     private int lastPosition = -1;
-    private InterstitialAd mInterstitialAd;
     public static boolean click=false;
     private String TAG = "ItemAdapter";
+    AdsHelper ads;
+    Activity activity;
+    MainActivity activityMain;
+
+
     private static class ViewHolder {
         TextView tvtitle;
         ImageView imgvItem;
         LinearLayout lyitem;
     }
 
-    public ItemAdapter(Context context, ArrayList<Item> itemsArrayList) {
+    public ItemAdapter(Context context, ArrayList<Item> itemsArrayList, Activity p_activity, MainActivity m) {
         super();
         this.mContext = context;
         this.ItemArrayList = itemsArrayList;
-
-        /*// Interstitial ads
-        mInterstitialAd = new InterstitialAd(context);
-        mInterstitialAd.setAdUnitId(context.getString(R.string.interstitial_ads));
-        mInterstitialAd.loadAd(new AdRequest.Builder().build());*/
-
-        interstitialads();
+        this.activity = p_activity;
+        ads = new AdsHelper(activity);
+        activityMain = m;
     }
 
-    public void interstitialads() {
-        mInterstitialAd = new InterstitialAd(mContext, mContext.getString(R.string.fb_inter));
-
-        InterstitialAdListener interstitialAdListener = new InterstitialAdListener() {
-            @Override
-            public void onInterstitialDisplayed(Ad ad) {
-                // Interstitial ad displayed callback
-                Log.e(TAG, "Interstitial ad displayed.");
-            }
-
-            @Override
-            public void onInterstitialDismissed(Ad ad) {
-                // Interstitial dismissed callback
-                interstitialads();
-
-                Log.e(TAG, "Interstitial ad dismissed.");
-            }
-
-            @Override
-            public void onError(Ad ad, AdError adError) {
-                // Ad error callback
-                Log.e(TAG, "Interstitial ad failed to load: " + adError.getErrorMessage());
-            }
-
-            @Override
-            public void onAdLoaded(Ad ad) {
-                // Interstitial ad is loaded and ready to be displayed
-                Log.d(TAG, "Interstitial ad is loaded and ready to be displayed!");
-                // Show the ad
-            }
-
-            @Override
-            public void onAdClicked(Ad ad) {
-                // Ad clicked callback
-                Log.d(TAG, "Interstitial ad clicked!");
-            }
-
-            @Override
-            public void onLoggingImpression(Ad ad) {
-                // Ad impression logged callback
-                Log.d(TAG, "Interstitial ad impression logged!");
-            }
-        };
-
-        mInterstitialAd.loadAd(mInterstitialAd.buildLoadAdConfig()
-                .withAdListener(interstitialAdListener)
-                .withCacheFlags(ALL)
-                .build());
-
-    }
 
     @NonNull
     @Override
     public View getView(final int position, View convertView, ViewGroup parent) {
-
-
-
-
 
         //get the  information
         final String title = ItemArrayList.get(position).getTitle();
@@ -167,8 +106,7 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
 
 
                 //load so show the ads InterstitialAd
-                if(mInterstitialAd.isAdLoaded())
-                    mInterstitialAd.show();
+                activityMain.showInter();
 
             }
         });
@@ -238,3 +176,29 @@ public class ItemAdapter extends BaseAdapter implements Filterable {
      */
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

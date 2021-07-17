@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         >
 
-        <com.qurankareem.salahalbudair.Fonts.jazerra
+        <com.qurankareem.maheralmueaqly.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -22,7 +22,7 @@
             android:textColor="@color/colorPrimary"
             />
 
-        <com.qurankareem.salahalbudair.Fonts.jazerra
+        <com.qurankareem.maheralmueaqly.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,7 +33,7 @@
 
             />
 
-        <com.qurankareem.salahalbudair.Fonts.jazerra
+        <com.qurankareem.maheralmueaqly.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -45,11 +45,25 @@
 
     </LinearLayout>
 
-    <LinearLayout
+    <!--<LinearLayout
         android:id="@+id/banner_container"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical" />
+        android:orientation="vertical" />-->
+
+    <!--<FrameLayout
+        android:id="@+id/layoutBannerAd"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center_horizontal"
+        android:layout_marginTop="10dp"/>-->
+
+    <FrameLayout
+        android:id="@+id/bannerContainer"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="top"
+        android:visibility="visible" />
 
     <ListView
         android:layout_width="match_parent"

@@ -1,10 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
-    package="com.qurankareem.salahalbudair">
+    package="com.qurankareem.maheralmueaqly">
 
-    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.INTERNET" />
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE" />
     <uses-permission android:name="android.permission.WAKE_LOCK" />
     <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
     <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
@@ -25,9 +25,9 @@
         tools:ignore="GoogleAppIndexingWarning"
         tools:targetApi="n">
 
-        <service android:name="com.qurankareem.salahalbudair.Services.ServicePlayer" />
+        <service android:name="com.qurankareem.maheralmueaqly.Services.ServicePlayer" />
 
-        <activity android:name="com.qurankareem.salahalbudair.View.MainActivity">
+        <activity android:name="com.qurankareem.maheralmueaqly.View.MainActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -35,16 +35,39 @@
             </intent-filter>
         </activity>
         <activity
-            android:name="com.qurankareem.salahalbudair.View.ReadFileActivity"
-            android:parentActivityName="com.qurankareem.salahalbudair.View.MainActivity" />
+            android:name="com.qurankareem.maheralmueaqly.View.ReadFileActivity"
+            android:parentActivityName="com.qurankareem.maheralmueaqly.View.MainActivity" />
 
-        <service android:name="com.qurankareem.salahalbudair.Models.DownloadService" />
+        <service android:name="com.qurankareem.maheralmueaqly.Models.DownloadService" />
 
 
         <!-- Sample AdMob App ID: ca-app-pub-3940256099942544~3347511713 -->
         <meta-data
             android:name="com.google.android.gms.ads.APPLICATION_ID"
             android:value="@string/admob_AppId"/>
+
+
+        <activity
+            android:name="com.ironsource.sdk.controller.ControllerActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true" />
+        <activity
+            android:name="com.ironsource.sdk.controller.InterstitialActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.ironsource.sdk.controller.OpenUrlActivity"
+            android:configChanges="orientation|screenSize"
+            android:hardwareAccelerated="true"
+            android:theme="@android:style/Theme.Translucent" />
+        <activity
+            android:name="com.facebook.ads.AudienceNetworkActivity"
+            android:hardwareAccelerated="true"
+            android:configChanges="keyboardHidden|orientation|screenSize" />
+        <provider
+            android:authorities="${applicationId}.IronsourceLifecycleProvider"
+            android:name="com.ironsource.lifecycle.IronsourceLifecycleProvider" />
 
     </application>
 
