@@ -1,4 +1,4 @@
-package com.qurankareem.ahmedalajami.View;
+package com.qurankareem.abdelbasitabdessamad.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -42,13 +42,13 @@ import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
 
 import com.ironsource.mediationsdk.IronSource;
-import com.qurankareem.ahmedalajami.Adapters.ItemAdapter;
-import com.qurankareem.ahmedalajami.Ads.AdsHelper;
-import com.qurankareem.ahmedalajami.Models.DownloadReceiver;
-import com.qurankareem.ahmedalajami.Models.DownloadService;
-import com.qurankareem.ahmedalajami.Models.Helpers;
-import com.qurankareem.ahmedalajami.R;
-import com.qurankareem.ahmedalajami.Services.ServicePlayer;
+import com.qurankareem.abdelbasitabdessamad.Adapters.ItemAdapter;
+import com.qurankareem.abdelbasitabdessamad.Ads.AdsHelper;
+import com.qurankareem.abdelbasitabdessamad.Models.DownloadReceiver;
+import com.qurankareem.abdelbasitabdessamad.Models.DownloadService;
+import com.qurankareem.abdelbasitabdessamad.Models.Helpers;
+import com.qurankareem.abdelbasitabdessamad.R;
+import com.qurankareem.abdelbasitabdessamad.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -84,7 +84,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.ahmedalajami.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.abdelbasitabdessamad.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;
@@ -135,11 +135,11 @@ public class ReadFileActivity extends AppCompatActivity implements
 
 
         if (postion < 10) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "00" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "0" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + postion + ".mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         getSupportActionBar().setTitle(title);
@@ -309,11 +309,11 @@ public class ReadFileActivity extends AppCompatActivity implements
         tvmain.setText(text);
 
         if (postion < 10) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "00" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "0" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + postion + ".mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         editor.putInt("currentPos", postion);
@@ -371,11 +371,11 @@ public class ReadFileActivity extends AppCompatActivity implements
         tvmain.setText(text);
 
         if (postion < 10) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "00" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + "0" + postion + ".mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + "Quran_Ahmad_Alajmi-"  + postion + ".mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         editor.putInt("currentPos", postion);

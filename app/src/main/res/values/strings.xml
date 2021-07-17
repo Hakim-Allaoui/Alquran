@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name" translatable="false">أحمد العجمي القرآن الكريم</string>
+    <string name="app_name" translatable="false">عبد الباسط عبد الصمد</string>
 
-    <string name="url_sound" translatable="false">https://archive.org/download/Quran_Ahmad-Alajmi/</string>
+    <string name="url_sound" translatable="false">https://archive.org/download/Abdulbasit_Abdulsamad_Moujawwad_MP3_Quran/</string>
 
-    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~4451373294</string>
+    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~7169229493</string>
 
 
-    <string name="ironsource_app_key" translatable="false">10392ba91</string>
+    <string name="ironsource_app_key" translatable="false">103932da1</string>
     <string name="ironsource_banner_id" translatable="false">DefaultBanner</string>
     <string name="ironsource_interstitial_id" translatable="false">DefaultInterstitial</string>
 

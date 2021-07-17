@@ -12,7 +12,7 @@
         android:orientation="horizontal"
         >
 
-        <com.qurankareem.ahmedalajami.Fonts.jazerra
+        <com.qurankareem.abdelbasitabdessamad.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -22,7 +22,7 @@
             android:textColor="@color/colorPrimary"
             />
 
-        <com.qurankareem.ahmedalajami.Fonts.jazerra
+        <com.qurankareem.abdelbasitabdessamad.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"
@@ -33,7 +33,7 @@
 
             />
 
-        <com.qurankareem.ahmedalajami.Fonts.jazerra
+        <com.qurankareem.abdelbasitabdessamad.Fonts.jazerra
             android:layout_width="wrap_content"
             android:layout_height="match_parent"
             android:gravity="center"

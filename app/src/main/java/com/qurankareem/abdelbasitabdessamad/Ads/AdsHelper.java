@@ -1,4 +1,4 @@
-package com.qurankareem.ahmedalajami.Ads;
+package com.qurankareem.abdelbasitabdessamad.Ads;
 
 import android.app.Activity;
 import android.util.Log;
@@ -11,7 +11,7 @@ import com.ironsource.mediationsdk.IronSourceBannerLayout;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.sdk.BannerListener;
 import com.ironsource.mediationsdk.sdk.InterstitialListener;
-import com.qurankareem.ahmedalajami.R;
+import com.qurankareem.abdelbasitabdessamad.R;
 
 import static com.ironsource.mediationsdk.IronSource.isInterstitialReady;
 
