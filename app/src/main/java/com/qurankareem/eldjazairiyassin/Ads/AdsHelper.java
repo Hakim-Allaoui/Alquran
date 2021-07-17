@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly.Ads;
+package com.qurankareem.eldjazairiyassin.Ads;
 
 import android.app.Activity;
 import android.util.Log;
@@ -11,7 +11,7 @@ import com.ironsource.mediationsdk.IronSourceBannerLayout;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.sdk.BannerListener;
 import com.ironsource.mediationsdk.sdk.InterstitialListener;
-import com.qurankareem.maheralmueaqly.R;
+import com.qurankareem.eldjazairiyassin.R;
 
 import static com.ironsource.mediationsdk.IronSource.isInterstitialReady;
 
@@ -132,7 +132,6 @@ public class AdsHelper {
 
         IronSource.loadInterstitial();
     }
-
 
 
     public void loadInterstitial() {

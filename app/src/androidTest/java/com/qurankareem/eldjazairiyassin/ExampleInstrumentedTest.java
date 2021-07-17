@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly;
+package com.qurankareem.eldjazairiyassin;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.qurankareem.maheralmueaqly", appContext.getPackageName());
+        assertEquals("com.qurankareem.eldjazairiyassin", appContext.getPackageName());
     }
 }

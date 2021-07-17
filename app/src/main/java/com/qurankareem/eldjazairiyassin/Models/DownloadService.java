@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly.Models;
+package com.qurankareem.eldjazairiyassin.Models;
 
 import android.app.IntentService;
 import android.content.Intent;

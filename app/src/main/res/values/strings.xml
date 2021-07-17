@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name" translatable="false">Maher Al Mueaqly - ماهر المعيقلي</string>
+    <string name="app_name" translatable="false">ياسين الجزائري</string>
 
-    <string name="url_sound" translatable="false">https://archive.org/download/almeaqly____-----114-----sora-------full---quran---mp3------koran/</string>
+    <string name="url_sound" translatable="false">http://server11.mp3quran.net/qari/</string>
 
-    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~3884929910</string>
+    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~3197167223</string>
 
 
-    <string name="ironsource_app_key" translatable="false">103791c01</string>
+    <string name="ironsource_app_key" translatable="false">1038b5009</string>
     <string name="ironsource_banner_id" translatable="false">DefaultBanner</string>
     <string name="ironsource_interstitial_id" translatable="false">DefaultInterstitial</string>
 

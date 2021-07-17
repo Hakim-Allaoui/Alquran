@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly.View;
+package com.qurankareem.eldjazairiyassin.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -42,13 +42,13 @@ import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
 
 import com.ironsource.mediationsdk.IronSource;
-import com.qurankareem.maheralmueaqly.Adapters.ItemAdapter;
-import com.qurankareem.maheralmueaqly.Ads.AdsHelper;
-import com.qurankareem.maheralmueaqly.Models.DownloadReceiver;
-import com.qurankareem.maheralmueaqly.Models.DownloadService;
-import com.qurankareem.maheralmueaqly.Models.Helpers;
-import com.qurankareem.maheralmueaqly.R;
-import com.qurankareem.maheralmueaqly.Services.ServicePlayer;
+import com.qurankareem.eldjazairiyassin.Adapters.ItemAdapter;
+import com.qurankareem.eldjazairiyassin.Ads.AdsHelper;
+import com.qurankareem.eldjazairiyassin.Models.DownloadReceiver;
+import com.qurankareem.eldjazairiyassin.Models.DownloadService;
+import com.qurankareem.eldjazairiyassin.Models.Helpers;
+import com.qurankareem.eldjazairiyassin.R;
+import com.qurankareem.eldjazairiyassin.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -84,7 +84,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.maheralmueaqly.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.eldjazairiyassin.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;
@@ -134,14 +134,12 @@ public class ReadFileActivity extends AppCompatActivity implements
         postion = Integer.parseInt(pos);
 
 
-        if (postion == 1) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
-        } else if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
+        if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         getSupportActionBar().setTitle(title);
@@ -254,6 +252,11 @@ public class ReadFileActivity extends AppCompatActivity implements
                     if (click_pre) {
                         previous();
                     }
+                    if(adCounter % 4 == 0 ){
+                        ads.showInterstitial();
+                    }
+                    adCounter++;
+                    Log.v("ReadFileActivity","adCounter " + adCounter);
                     break;
 
                 case ServicePlayer.BUFFERING:
@@ -305,14 +308,12 @@ public class ReadFileActivity extends AppCompatActivity implements
         }
         tvmain.setText(text);
 
-        if (postion == 1) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
-        } else if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
+        if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         editor.putInt("currentPos", postion);
@@ -369,14 +370,12 @@ public class ReadFileActivity extends AppCompatActivity implements
         }
         tvmain.setText(text);
 
-        if (postion == 1) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2_2.mp3";
-        } else if (postion < 10) {
-            path = getString(R.string.url_sound) + "00" + postion + "_2.mp3";
+        if (postion < 10) {
+            path = getString(R.string.url_sound) + "00" + postion + ".mp3";
         } else if (postion > 10 && postion < 100) {
-            path = getString(R.string.url_sound) + "0" + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + "0" + postion + ".mp3";
         } else {
-            path = getString(R.string.url_sound) + postion + "_2.mp3";
+            path = getString(R.string.url_sound) + postion + ".mp3";
         }
 
         editor.putInt("currentPos", postion);

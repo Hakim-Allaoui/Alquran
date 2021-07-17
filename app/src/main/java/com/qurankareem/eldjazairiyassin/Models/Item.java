@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly.Models;
+package com.qurankareem.eldjazairiyassin.Models;
 
 public class Item {
 

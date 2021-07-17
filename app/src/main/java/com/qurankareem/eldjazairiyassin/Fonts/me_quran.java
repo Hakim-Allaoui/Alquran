@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly.Fonts;
+package com.qurankareem.eldjazairiyassin.Fonts;
 
 import android.content.Context;
 import android.content.res.TypedArray;
@@ -6,7 +6,7 @@ import android.graphics.Typeface;
 import android.util.AttributeSet;
 import android.util.Log;
 
-import com.qurankareem.maheralmueaqly.R;
+import com.qurankareem.eldjazairiyassin.R;
 
 public class me_quran extends androidx.appcompat.widget.AppCompatTextView  {
 

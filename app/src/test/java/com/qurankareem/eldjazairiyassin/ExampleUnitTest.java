@@ -1,4 +1,4 @@
-package com.qurankareem.maheralmueaqly;
+package com.qurankareem.eldjazairiyassin;
 
 import org.junit.Test;
 
