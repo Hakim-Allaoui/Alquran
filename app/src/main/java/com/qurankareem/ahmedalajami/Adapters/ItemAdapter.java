@@ -1,4 +1,4 @@
-package com.qurankareem.misharyalafassy.Adapters;
+package com.qurankareem.ahmedalajami.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,11 +20,11 @@ import androidx.annotation.NonNull;
 /*import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;*/
 
-import com.qurankareem.misharyalafassy.Ads.AdsHelper;
-import com.qurankareem.misharyalafassy.Models.Item;
-import com.qurankareem.misharyalafassy.R;
-import com.qurankareem.misharyalafassy.View.MainActivity;
-import com.qurankareem.misharyalafassy.View.ReadFileActivity;
+import com.qurankareem.ahmedalajami.Ads.AdsHelper;
+import com.qurankareem.ahmedalajami.Models.Item;
+import com.qurankareem.ahmedalajami.R;
+import com.qurankareem.ahmedalajami.View.MainActivity;
+import com.qurankareem.ahmedalajami.View.ReadFileActivity;
 
 import java.util.ArrayList;
 

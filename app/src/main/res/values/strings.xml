@@ -1,12 +1,12 @@
 <resources>
-    <string name="app_name" translatable="false">مشاري بن راشد العفاسي</string>
+    <string name="app_name" translatable="false">أحمد العجمي القرآن الكريم</string>
 
-    <string name="url_sound" translatable="false">https://archive.org/download/Mishary_Alafassy_Quran/</string>
+    <string name="url_sound" translatable="false">https://archive.org/download/Quran_Ahmad-Alajmi/</string>
 
-    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~6110819761</string>
+    <string name="admob_AppId" translatable="false">ca-app-pub-8644958469423958~4451373294</string>
 
 
-    <string name="ironsource_app_key" translatable="false">10390ee51</string>
+    <string name="ironsource_app_key" translatable="false">10392ba91</string>
     <string name="ironsource_banner_id" translatable="false">DefaultBanner</string>
     <string name="ironsource_interstitial_id" translatable="false">DefaultInterstitial</string>
 

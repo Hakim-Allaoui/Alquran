@@ -1,4 +1,4 @@
-package com.qurankareem.misharyalafassy.Ads;
+package com.qurankareem.ahmedalajami.Ads;
 
 import android.app.Activity;
 import android.util.Log;
@@ -11,10 +11,7 @@ import com.ironsource.mediationsdk.IronSourceBannerLayout;
 import com.ironsource.mediationsdk.logger.IronSourceError;
 import com.ironsource.mediationsdk.sdk.BannerListener;
 import com.ironsource.mediationsdk.sdk.InterstitialListener;
-import com.qurankareem.misharyalafassy.R;
-
-import java.util.Timer;
-import java.util.TimerTask;
+import com.qurankareem.ahmedalajami.R;
 
 import static com.ironsource.mediationsdk.IronSource.isInterstitialReady;
 
