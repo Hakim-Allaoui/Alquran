@@ -1,4 +1,4 @@
-package com.qurankareem.abdelbasitabdessamad;
+package com.qurankareem.salahalbudair;
 
 import org.junit.Test;
 
