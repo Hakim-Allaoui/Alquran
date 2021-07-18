@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast;
+package com.qurankareem.alsudais;
 
 import android.content.Context;
 
@@ -22,6 +22,6 @@ public class ExampleInstrumentedTest {
         // Context of the app under test.
         Context appContext = InstrumentationRegistry.getInstrumentation().getTargetContext();
 
-        assertEquals("com.qurankareem.minshawifast", appContext.getPackageName());
+        assertEquals("com.qurankareem.alsudais", appContext.getPackageName());
     }
 }

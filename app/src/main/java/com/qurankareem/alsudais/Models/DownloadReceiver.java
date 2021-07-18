@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.Models;
+package com.qurankareem.alsudais.Models;
 
 import android.app.ProgressDialog;
 import android.content.Context;
@@ -10,7 +10,7 @@ import android.widget.Toast;
 
 import androidx.appcompat.app.AlertDialog;
 
-import com.qurankareem.minshawifast.R;
+import com.qurankareem.alsudais.R;
 
 public class DownloadReceiver extends ResultReceiver {
 

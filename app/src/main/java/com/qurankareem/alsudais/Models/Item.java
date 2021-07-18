@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.Models;
+package com.qurankareem.alsudais.Models;
 
 public class Item {
 

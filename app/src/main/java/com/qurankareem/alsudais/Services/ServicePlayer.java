@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.Services;
+package com.qurankareem.alsudais.Services;
 
 import android.app.Notification;
 import android.app.NotificationChannel;
@@ -21,8 +21,8 @@ import android.widget.RemoteViews;
 
 import androidx.core.app.NotificationCompat;
 
-import com.qurankareem.minshawifast.R;
-import com.qurankareem.minshawifast.View.ReadFileActivity;
+import com.qurankareem.alsudais.R;
+import com.qurankareem.alsudais.View.ReadFileActivity;
 
 import java.util.Random;
 
@@ -35,18 +35,18 @@ public class ServicePlayer extends Service implements
     NotificationCompat.Builder notificationBuilder;
     boolean isRepeat, isShuffle, isBuffering = false,isPlayAfterBuffering = true;
     private int buffer;
-    public static String PAUSE = "com.qurankareem.minshawifast.PAUSE";
-    public static String PLAY = "com.qurankareem.minshawifast.PLAY";
-    public static String NEXT = "com.qurankareem.minshawifast.NEXT";
-    public static String PREV = "com.qurankareem.minshawifast.PREV";
-    public static String CLOSE = "com.qurankareem.minshawifast.CLOSE";
-    public static String ALARM_PAUSE= "com.qurankareem.minshawifast.ALARM_PAUSE";
+    public static String PAUSE = "com.qurankareem.alsudais.PAUSE";
+    public static String PLAY = "com.qurankareem.alsudais.PLAY";
+    public static String NEXT = "com.qurankareem.alsudais.NEXT";
+    public static String PREV = "com.qurankareem.alsudais.PREV";
+    public static String CLOSE = "com.qurankareem.alsudais.CLOSE";
+    public static String ALARM_PAUSE= "com.qurankareem.alsudais.ALARM_PAUSE";
     private final IBinder mBinder = new PlayerBinder();
     private int NOTIFICATION_ID = 111;
-    public static final String BUFFERING = "com.qurankareem.minshawifast.ServicePlayer.BUFFERING";
-    public static final String UPDATE_UI = "com.qurankareem.minshawifast.ServicePlayer.UPDATE_UI";
-    public static final String UPDATE_UI_PRE = "com.qurankareem.minshawifast.ServicePlayer.UPDATE_UI_PRE";
-    public static final String UPDATE_UI_NEXT = "com.qurankareem.minshawifast.ServicePlayer.UPDATE_UI_NEXT";
+    public static final String BUFFERING = "com.qurankareem.alsudais.ServicePlayer.BUFFERING";
+    public static final String UPDATE_UI = "com.qurankareem.alsudais.ServicePlayer.UPDATE_UI";
+    public static final String UPDATE_UI_PRE = "com.qurankareem.alsudais.ServicePlayer.UPDATE_UI_PRE";
+    public static final String UPDATE_UI_NEXT = "com.qurankareem.alsudais.ServicePlayer.UPDATE_UI_NEXT";
     public static boolean clickNext=false;
 
     BroadcastReceiver receiver = new BroadcastReceiver() {

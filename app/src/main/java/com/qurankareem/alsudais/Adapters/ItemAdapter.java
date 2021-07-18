@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.Adapters;
+package com.qurankareem.alsudais.Adapters;
 
 import android.app.Activity;
 import android.content.Context;
@@ -20,11 +20,11 @@ import androidx.annotation.NonNull;
 /*import com.google.android.gms.ads.AdRequest;
 import com.google.android.gms.ads.InterstitialAd;*/
 
-import com.qurankareem.minshawifast.Ads.AdsHelper;
-import com.qurankareem.minshawifast.Models.Item;
-import com.qurankareem.minshawifast.R;
-import com.qurankareem.minshawifast.View.MainActivity;
-import com.qurankareem.minshawifast.View.ReadFileActivity;
+import com.qurankareem.alsudais.Ads.AdsHelper;
+import com.qurankareem.alsudais.Models.Item;
+import com.qurankareem.alsudais.R;
+import com.qurankareem.alsudais.View.MainActivity;
+import com.qurankareem.alsudais.View.ReadFileActivity;
 
 import java.util.ArrayList;
 

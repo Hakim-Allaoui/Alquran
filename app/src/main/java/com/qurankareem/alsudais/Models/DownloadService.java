@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.Models;
+package com.qurankareem.alsudais.Models;
 
 import android.app.IntentService;
 import android.content.Intent;

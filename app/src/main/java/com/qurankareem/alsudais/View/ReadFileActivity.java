@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast.View;
+package com.qurankareem.alsudais.View;
 
 import android.Manifest;
 import android.annotation.SuppressLint;
@@ -42,13 +42,13 @@ import com.facebook.ads.AdView;
 import com.facebook.ads.InterstitialAd;
 
 import com.ironsource.mediationsdk.IronSource;
-import com.qurankareem.minshawifast.Adapters.ItemAdapter;
-import com.qurankareem.minshawifast.Ads.AdsHelper;
-import com.qurankareem.minshawifast.Models.DownloadReceiver;
-import com.qurankareem.minshawifast.Models.DownloadService;
-import com.qurankareem.minshawifast.Models.Helpers;
-import com.qurankareem.minshawifast.R;
-import com.qurankareem.minshawifast.Services.ServicePlayer;
+import com.qurankareem.alsudais.Adapters.ItemAdapter;
+import com.qurankareem.alsudais.Ads.AdsHelper;
+import com.qurankareem.alsudais.Models.DownloadReceiver;
+import com.qurankareem.alsudais.Models.DownloadService;
+import com.qurankareem.alsudais.Models.Helpers;
+import com.qurankareem.alsudais.R;
+import com.qurankareem.alsudais.Services.ServicePlayer;
 import com.wang.avi.AVLoadingIndicatorView;
 
 import java.io.BufferedReader;
@@ -84,7 +84,7 @@ public class ReadFileActivity extends AppCompatActivity implements
     private InterstitialAd mInterstitialAd;
     ServicePlayer audioPlayerService;
     boolean isRepeat, isShuffle;
-    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.minshawifast.ON_TRACK_CLICK_PLAY";
+    public static final String ON_TRACK_CLICK_PLAY = "com.qurankareem.alsudais.ON_TRACK_CLICK_PLAY";
     private SharedPreferences.Editor editor;
     private SharedPreferences prefs;
     private AdView mAdView;

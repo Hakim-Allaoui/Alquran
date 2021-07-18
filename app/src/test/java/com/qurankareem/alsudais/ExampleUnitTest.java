@@ -1,4 +1,4 @@
-package com.qurankareem.minshawifast;
+package com.qurankareem.alsudais;
 
 import org.junit.Test;
 
